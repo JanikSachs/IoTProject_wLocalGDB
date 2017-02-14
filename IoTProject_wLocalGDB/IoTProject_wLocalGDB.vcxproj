@@ -29,7 +29,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Makefile</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
@@ -39,7 +39,7 @@
     <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Makefile</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
@@ -67,8 +67,11 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
+    <None Include="TestFilesmyfile" />
+    <None Include="TestFiles\myfile" />
     <Text Include="Readme\readme.html" />
     <Text Include="Readme\stylesheet.css" />
+    <None Include="iotProject.exe" />
     <None Include="Readme\images\debugproperties.png" />
     <None Include="Readme\images\remotebuild.png" />
     <None Include="Readme\images\remotebuildcmdline.png" />
@@ -118,15 +121,23 @@
   <ItemGroup>
     <ProjectCapability Include="Linux" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Data.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp" />
+  </ItemGroup>
   <!-- To Enable linux debugger End -->
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <NMakeBuildCommandLine>
-    </NMakeBuildCommandLine>
+    <NMakeBuildCommandLine>g++ "$(LocalWorkingDirectory)\main.cpp" -g -o "$(LocalWorkingDirectory)\$(LocalExecutable)"</NMakeBuildCommandLine>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <NMakeBuildCommandLine>
     </NMakeBuildCommandLine>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <NMakeBuildCommandLine>g++ "$(LocalWorkingDirectory)\main.cpp" -g -o "$(LocalWorkingDirectory)\$(LocalExecutable)"</NMakeBuildCommandLine>
   </PropertyGroup>
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

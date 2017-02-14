@@ -7,6 +7,7 @@
 #include <cstdlib>
 #include <string>
 #include <sstream>
+#include <streambuf>
 #include <vector>
 
 
@@ -48,9 +49,12 @@ string* Data::readData(string path, string fname)
 		int ix = 0;
 		char delimeter('\n');
 		ofstream jsonfile(".\\TestFiles\\jsondata.json");
+		string str((istreambuf_iterator<char>(myFile)),
+					istreambuf_iterator<char>());
 
 		while (getline(myFile, dataString, delimeter))
 		{
+			
 			dataArr[ix] = dataString;
 			ix++;
 		}
@@ -58,18 +62,18 @@ string* Data::readData(string path, string fname)
 		myFile.close();
 		
 		//still have to find the length
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 3; i++) {
 			cout << "loop" << i << endl;
 			int temp;
 			char * ptr;
 			string identifier = dataArr[i].substr(0, 4);
-			string value = dataArr[i].substr(4, 32);
+			string value = dataArr[i].substr(4, 36);
 			cout << "id: " << identifier << endl;
 			cout << "val: " << strtol(identifier.c_str(), &ptr, 2) << endl;
 			temp = strtol(identifier.c_str(), &ptr, 2);
 			switch (temp)
 			{
-			case 1: //speed
+			case 8: //speed
 				speed = strtol(value.c_str(), &ptr, 2);
 				break;
 			case 2: //engrot

@@ -8,8 +8,11 @@ using namespace std;
 int test_1(void) {
 	cout << "Test_1" << endl;
 	Data base;
-	string *test = base.readData("C:/Users/vdd/Documents/GitLab/IoTProject_wLocalGDB/IoTProject_wLocalGDB/TestFiles", "myfile");
 
+	// 4 bit und dann 32 bit
+
+	string *test = base.readData("C:/Users/vdd/Source/Repos/IoTProject_wLocalGDB/IoTProject_wLocalGDB/TestFiles", "myfile");
+	return 0;
 }
 
 int main(void) {
@@ -18,3 +21,4 @@ int main(void) {
 
 	return 0;
 }
+

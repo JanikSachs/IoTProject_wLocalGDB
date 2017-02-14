@@ -25,6 +25,9 @@
     <None Include="Readme\images\ocdproperties.png">
       <Filter>Readme\images</Filter>
     </None>
+    <None Include="iotProject.exe" />
+    <None Include="TestFilesmyfile" />
+    <None Include="TestFiles\myfile" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Readme\readme.html">
@@ -44,5 +47,11 @@
     <Filter Include="Readme\images">
       <UniqueIdentifier>{fba64bae-4073-4f46-af33-d3b048352479}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Data.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp" />
   </ItemGroup>
 </Project>
